@@ -2,3 +2,9 @@ name: DeathGenie
 version: 0.0.1
 author: RiverChiang
 main: com.gmail.h90093000054.DeathGenie.DeathGenie
+api-version: 1.17
+
+commands:
+  dg:
+    description: 開啟DeathGenie管理介面
+    usage: /<command>
