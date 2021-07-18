@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class Gui implements Listener {
     private Inventory gui;
     private ItemStack lookUp, increase, decrease;
+    private int modifyLevel = 20;
 
     Plugin plugin = DeathGenie.getMainPlugin();
 
@@ -61,7 +62,7 @@ public class Gui implements Listener {
         // Set Lore
         ArrayList<String> increaseLoreArray = new ArrayList<>();
         increaseLoreArray.add("");
-        increaseLoreArray.add("花費自身等級10等與死亡精靈締結契約");
+        increaseLoreArray.add("花費自身等級" + modifyLevel + "等與死亡精靈締結契約");
         increaseLoreArray.add("死亡精靈會在你死亡的時候發動魔法陣並死亡");
 
         // setup
@@ -80,7 +81,7 @@ public class Gui implements Listener {
         // Set Lore
         ArrayList<String> decreaseLoreArray = new ArrayList<>();
         decreaseLoreArray.add("");
-        decreaseLoreArray.add("返回自身等級10等與死亡精靈解除契約");
+        decreaseLoreArray.add("返回自身等級 " + (int)(modifyLevel * 0.2) + " 等與死亡精靈解除契約");
         decreaseLoreArray.add("你確定真的要這麼做嗎?");
         decreaseLoreArray.add("死亡精靈他會傷心的");
 
@@ -109,7 +110,7 @@ public class Gui implements Listener {
 
         Player player = (Player) event.getWhoClicked();
 
-        int temp = 0, modifyLevel = 10;
+        int temp = 0;
 
         if (data.getDataConfig().contains("players." + player.getUniqueId().toString() + "." + player.getName() + ".times")) {
             data.reloadConfig();
@@ -121,7 +122,7 @@ public class Gui implements Listener {
                 if (!event.getCurrentItem().equals(lookUp))
                     return;
 
-                player.sendMessage(ChatColor.GOLD + "\n目前有 " + temp + " 隻精靈正追隨著你的腳步");
+                player.sendMessage(ChatColor.GOLD + "目前有 " + temp + " 隻精靈正追隨著你的腳步");
                 player.closeInventory();
                 break;
             case 4:
