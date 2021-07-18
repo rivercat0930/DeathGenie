@@ -146,7 +146,7 @@ public class Gui implements Listener {
 
                 // increase level
                 if (temp >= 1) {
-                    player.setLevel(player.getLevel() + modifyLevel);
+                    player.setLevel(player.getLevel() + (int)(modifyLevel * 0.2));
                     player.sendMessage(ChatColor.AQUA + "您怎麼這麼狠心呢主人(被拖走QAQ");
                     temp--;
                 }
